@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %} Add city {% endblock title %}
+
+{% block content %}
+<div class="column-12 pad-4"><h2>🌇 Cities</h2></div>
+
+<div class="column-12">
+    
+    <form method="POST" action="/cities/add">
+        {% csrf_token %}
+        <div class="content">
+            <div class="column-12">
+                <h3>Enter details:</h3>
+            </div>
+            <div class="marg-2">
+                <label>Country:</label>
+                <select id="city" class="input-box" name="country">
+                    {% for c in count %}
+                    <option value="{{c.id}}">{{c.name}}</option>
+                    {% endfor %}
+                    </select>
+            </div>
+            <div class="marg-2">
+                <label>City Name:</label>
+                {{form.name}}
+            </div>
+            <div class="marg-2">
+                <label>Description:</label>
+                {{form.description}}
+                <hr>
+            </div>
+            <div class="marg-2">
+                <button type="submit" class="butn btn-green">➕ Add</button>
+            </div>
+            <br>
+        </div>
+    </form>
+</div>
+
+{% endblock content %}

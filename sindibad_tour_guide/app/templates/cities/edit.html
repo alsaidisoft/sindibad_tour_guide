@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %} Edit city {% endblock title %}
+
+{% block content %}
+<div class="column-12 pad-4"><h2>🌇 Cities</h2></div>
+
+<div class="column-12">
+    
+    <form method="POST" action="/cities/updatecity/{{count.id}}">
+        
+        {% csrf_token %}
+        <div class="content">
+            <div class="column-12">
+                <h3>Edit details:</h3>
+            </div>
+            <div class="marg-2">
+                <label>ID:</label>
+                <input type="text" name="id" class="input-box" maxlength="100" id="id_id" value="{{count.id}}" readonly/>
+            </div>
+            <div class="marg-2">
+                <label>Country:</label>
+                <select id="city" class="input-box" name="country">
+                    <option value="{{count.country.id}}">{{count.country.name}}</option>
+                    {% for c in cc %}
+                    <option value="{{c.id}}">{{c.name}}</option>
+                    {% endfor %}
+                    </select>
+            </div>
+            <div class="marg-2">
+                <label>City name:</label>
+                <input type="text" name="name" class="input-box" maxlength="100" id="id_name" value="{{count.name}}">
+            </div>
+            <div class="marg-2">
+                <label>Description:</label>
+                <textarea name="description" cols="40" rows="10" class="input-box" maxlength="300" id="id_description">{{count.description}}</textarea>
+                <hr>
+            </div>
+            <div class="marg-2">
+                <button type="submit" class="butn btn-yellow">💾 Update</button>
+            </div>
+            <br>
+        </div>
+    </form>
+</div>
+
+{% endblock content %}

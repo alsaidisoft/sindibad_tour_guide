@@ -1,0 +1,25 @@
+
+{% extends "home.html" %}
+
+{% block content %}
+<hr>
+<div class="column-12 txt-center">
+    {% load static %}
+    <h2>{{count.name}}</h2>
+    <h5>{{count.cat.name}}</h5>
+    <hr>
+    <div class="description"><p>{{count.description}}</p></div>
+    <br>
+    <img src="{{count.sub_cat_image.url}}" style="width: 50%;" class="rounded border"/>
+    <br>
+    <h4>Contacts details: </h4>
+    <p>Phone number: {{count.phone}}</p>
+    <p>Website: {{count.website}}</p>
+    <p>Directions: {{count.direction}}</p>
+</div>
+
+<script>
+    myFunction();
+</script>
+{% endblock content %}
+

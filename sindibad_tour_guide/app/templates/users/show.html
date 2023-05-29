@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %} Users {% endblock title %}
+
+{% block content %}
+<div class="column-12 pad-4"><h2>👨🏻‍🔧 Users</h2></div>
+<div class="column-12">
+    <div dir="rtl" class="pad-4"><a href="/users/add" class="butn btn-green marg-2">➕ Add new</a></div>
+    <br>
+    <div class="tb-responsive">
+        <table class="table tb-bordered">
+            <thead class="backg-orange">
+                <th>id</th>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </thead>
+            <tbody>
+                {% for user in count %}
+                <tr>
+                    <td>{{user.id}}</td>
+                    <td>{{user.name}}</td>
+                    <td>{{user.role.name}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.phone}}</td>
+                    <td>{{user.username}}</td>
+                    <td>{{user.password}}</td>
+                    <td><a href="/users/edit/{{user.id}}" class="butn btn-yellow"> 📝  Edit</a></td>
+                    <td><a href="/users/deleteuser/{{user.id}}" class="butn btn-red">❌ Delete </a></td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+        <br>
+    </div>
+</div>
+
+{% endblock content %}

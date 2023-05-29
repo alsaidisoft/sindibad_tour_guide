@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %} Categories {% endblock title %}
+
+{% block content %}
+<div class="column-12 pad-4"><h2>⏹ Categories</h2></div>
+<div class="column-12">
+    <div dir="rtl" class="pad-4"><a href="/categories/add" class="butn btn-green marg-2">➕ Add new</a></div>
+    <br>
+    <div class="tb-responsive">
+        <table class="table tb-bordered">
+            <thead class="backg-orange">
+                <th>id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Icon</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </thead>
+            <tbody>
+                {% for cat in count %}
+                <tr>
+                    <td>{{cat.id}}</td>
+                    <td>{{cat.name}}</td>
+                    <td>{{cat.description}}</td>
+                    <td>{% if cat.icon %} <img src="{{cat.icon.url}}" width="150"/> {% endif %}</td>
+                    <td><a href="/categories/edit/{{cat.id}}" class="butn btn-yellow"> 📝  Edit</a></td>
+                    <td><a href="/categories/deletecategory/{{cat.id}}" class="butn btn-red">❌ Delete </a></td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+        <br>
+    </div>
+</div>
+
+{% endblock content %}

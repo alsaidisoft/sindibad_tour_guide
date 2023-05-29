@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %} Cpanel {% endblock title %}
+
+{% block content %}
+<div class="column-12 txt-center pad-4">
+    {% load static %}
+   
+    <img src="{% static 'app/images/sindibad.jpg' %}" class="rounded" />
+    <h1> Welcome to Sindibad tour guide cpanel </h1>
+    {% if messages %}
+    <div class="column-12 bg-success rounded">
+        {% for message in messages %}
+        {{ message }}
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+
+{% endblock content %}

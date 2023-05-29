@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %} Add category {% endblock title %}
+
+{% block content %}
+<div class="column-12 pad-4"><h2>⏹ Categories</h2></div>
+
+<div class="column-12">
+    
+    <form method="POST" action="/categories/add" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="content">
+            <div class="column-12">
+                <h3>Enter details:</h3>
+            </div>
+            <div class="marg-2">
+                <label>Name:</label>
+                {{form.name}}
+            </div>
+            <div class="marg-2">
+                <label>Description:</label>
+                {{form.description}}
+                <hr>
+            </div>
+            <div class="marg-2">
+                <label>Icon:</label>
+                {{form.icon}}
+            </div>
+            <div class="marg-2">
+                <button type="submit" class="butn btn-green">➕ Add</button>
+            </div>
+            <br>
+        </div>
+    </form>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        {% load static %}
+        <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="shortcut icon" href="{% static 'app/images/sindibad.jpg' %}"/>
+        <link href="{%  static 'app/css/mystyle.css' %}" rel="stylesheet">
+
+    </head>
+    <body>
+        <div class="mynavbar">
+            <h6 style="float: left !important; padding: 2px 2px 2px 8px; margin: 0;"><img src="{% static 'app/images/sindibad.jpg' %}" style="border-radius: 10%;" width="50"/> Sindibad tour guide</h6>
+            <a href="/countries/show">🌎 Countries</a>
+            <a href="/cities/show">🌇 Cities</a>
+            <a href="/categories/show">⏹ Categories</a>
+            <a href="/sub_cat/show"> 🟩 Sub categories</a>
+            <a href="/users/show">👨🏻‍🔧 Users</a>
+            <span style="float: right !important; padding: 2px 2px 2px 8px; margin: 0;"><a href="/login/index" style="color:rgb(192, 41, 41) !important; margin: 0px;"> <img src="{% static 'app/images/logout.png' %}" width="15"/> {{ request.session.name }}</a></span>
+
+          </div>
+        <div class="content rounded border">
+            <div class="row">
+                {% block content %} {% endblock %}
+
+            </div>
+        </div>
+        <br>
+    </body>
+</html>

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %} Cities {% endblock title %}
+
+{% block content %}
+<div class="column-12 pad-4"><h2>🌇 Cities</h2></div>
+<div class="column-12">
+    <div dir="rtl" class="pad-4"><a href="/cities/add" class="butn btn-green marg-2">➕ Add new</a></div>
+    <br>
+    <div class="tb-responsive">
+        <table class="table tb-bordered">
+            <thead class="backg-orange">
+                <th>id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </thead>
+            <tbody>
+                {% for city in count %}
+                <tr>
+                    <td>{{city.id}}</td>
+                    <td>{% if city.country.profile %} <img src="{{city.country.profile.url}}" width="70" class="rounded"/> {% endif %} {{city.country.name}} - {{city.name}}</td>
+                    <td>{{city.description}}</td>
+                    <td><a href="/cities/edit/{{city.id}}" class="butn btn-yellow"> 📝  Edit</a></td>
+                    <td><a href="/cities/deletecity/{{city.id}}" class="butn btn-red">❌ Delete </a></td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+        <br>
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %} Sub categories {% endblock title %}
+
+{% block content %}
+<div class="column-12 pad-4"><h2>🟩 Sub categories</h2></div>
+<div class="column-12">
+    <div dir="rtl" class="pad-4"><a href="/sub_cat/add" class="butn btn-green marg-2">➕ Add new</a></div>
+    <br>
+    <div class="tb-responsive">
+        <table class="table tb-bordered">
+            <thead class="backg-orange">
+                <th>id</th>
+                <th>City</th>
+                <th>Category</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Phone</th>
+                <th>Website</th>
+                <th>Directions</th>
+                <th>Image</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </thead>
+            <tbody>
+                {% for sub_cat in count %}
+                <tr>
+                    <td>{{sub_cat.id}}</td>
+                    <td>{{sub_cat.city.name}}</td>
+                    <td>{{sub_cat.cat.name}}</td>
+                    <td>{{sub_cat.name}}</td>
+                    <td>{{sub_cat.description}}</td>
+                    <td>{{sub_cat.phone}}</td>
+                    <td>{{sub_cat.website}}</td>
+                    <td>{{sub_cat.direction}}</td>
+                    <td>{% if sub_cat.sub_cat_image %} <img src="{{sub_cat.sub_cat_image.url}}" width="150"/> {% endif %}</td>
+                    <td><a href="/sub_cat/edit/{{sub_cat.id}}" class="butn btn-yellow"> 📝  Edit</a></td>
+                    <td><a href="/sub_cat/deletesubcat/{{sub_cat.id}}" class="butn btn-red">❌ Delete </a></td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+        <br>
+    </div>
+</div>
+
+{% endblock content %}

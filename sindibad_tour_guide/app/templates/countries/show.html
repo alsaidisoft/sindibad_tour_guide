@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %} Countries {% endblock title %}
+
+{% block content %}
+<div class="column-12 pad-4"><h2>🌎 Countries</h2></div>
+<div class="column-12">
+    <div dir="rtl" class="pad-4"><a href="/countries/add" class="butn btn-green marg-2">➕ Add new</a></div>
+    <br>
+    <div class="tb-responsive">
+        <table class="table tb-bordered">
+            <thead class="backg-orange">
+                <th>id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Profile</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </thead>
+            <tbody>
+                {% for country in count %}
+                <tr>
+                    <td>{{country.id}}</td>
+                    <td>{{country.name}}</td>
+                    <td>{{country.description}}</td>
+                    <td>{% if country.profile %} <img src="{{country.profile.url}}" width="150"/> {% endif %}</td>
+                    <td><a href="/countries/edit/{{country.id}}" class="butn btn-yellow"> 📝  Edit</a></td>
+                    <td><a href="/countries/deletecountry/{{country.id}}" class="butn btn-red">❌ Delete </a></td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+        <br>
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,56 @@
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>Log in</title>
+    {% load static %}
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="shortcut icon" href="{% static 'app/images/sindibad.jpg' %}"/>
+    <link href="{%  static 'app/css/mystyle.css' %}" rel="stylesheet">
+</head>
+<body>
+
+<div class="content-2 txt-center border rounded">
+<div class="column-12 txt-center">
+    {% load static %}
+    <img src="{% static 'app/images/sindibad.jpg' %}" width="300" class="rounded" />
+</div>
+<div class="column-12">
+
+
+
+    <form method="POST" action="/login/singin">
+        {% csrf_token %}
+        <div class="content">
+            {% if messages %}
+            <div class="column-12 bg-alert rounded">
+                {% for message in messages %}
+                {{ message }}
+                {% endfor %}
+            </div>
+            {% endif %}
+            <div class="column-12">
+                <h3>Log in:</h3>
+            </div>
+            <div class="marg-2">
+               <input type="text" name="username" class="input-box" placeholder="username"/>
+            </div>
+            <div class="marg-2">
+                <input type="password" name="password" class="input-box" placeholder="password"/>
+            </div>
+           
+            <div class="marg-2">
+                <br>
+                
+                <button type="submit" class="butn btn-orange wi-100">🔓Login</button>
+                
+            </div>
+            <br>
+        </div>
+    </form>
+</div>
+</div>
+
+</body>
+</html>
+{% endblock content %}

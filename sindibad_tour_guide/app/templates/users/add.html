@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %} Add user {% endblock title %}
+
+{% block content %}
+<div class="column-12 pad-4"><h2>👨🏻‍🔧 Users</h2></div>
+
+<div class="column-12">
+    
+    <form method="POST" action="/users/add">
+        {% csrf_token %}
+        <div class="content">
+            <div class="column-12">
+                <h3>Enter details:</h3>
+            </div>
+            <div class="marg-2">
+                <label>Role:</label>
+                <select id="role" class="input-box" name="role">
+                    {% for role in roles %}
+                    <option value="{{role.id}}">{{role.name}}</option>
+                    {% endfor %}
+                    </select>
+            </div>
+            <div class="marg-2">
+                <label>Name:</label>
+                {{form.name}}
+            </div>
+            <div class="marg-2">
+                <label>Email:</label>
+                {{form.email}}
+            </div>
+            <div class="marg-2">
+                <label>Phone:</label>
+                {{form.phone}}
+            </div>
+            <div class="marg-2">
+                <label>Username:</label>
+                {{form.username}}
+            </div>
+            <div class="marg-2">
+                <label>Password:</label>
+                {{form.password}}
+            </div>
+            <div class="marg-2">
+                <button type="submit" class="butn btn-green">➕ Add</button>
+            </div>
+            <br>
+        </div>
+    </form>
+</div>
+
+{% endblock content %}

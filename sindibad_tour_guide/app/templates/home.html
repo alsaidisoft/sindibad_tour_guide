@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Sindibad tour guide search engine</title>
+        {% load static %}
+        <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="shortcut icon" href="{% static 'app/images/sindibad.jpg' %}"/>
+        <link href="{%  static 'app/css/mystyle.css' %}" rel="stylesheet">
+        <script src="{%  static 'app/js/myfunction.js' %}"></script>
+        
+<style>
+
+form {
+  text-align: center !important;
+}
+
+  input[type=search] {
+    border: 1px solid #ccc;
+    text-align: center !important;
+    background-color: #fafafa;
+    border-radius: 30px;
+    width: 60% !important;
+    height: 50px !important;
+    margin: 5px;
+
+  }
+  
+  .circle-img{
+    border-radius: 30%;
+  }
+</style>
+
+    </head>
+    <body>
+        <div class="mynavbar">
+            <span style="float: left !important; padding: 2px 2px 2px 8px; margin: 0;">
+            
+            <a href="/home">🏠 Home</a>
+            <a href="/about">✳️ About</a>
+            <a href="#" onclick="joinUs()">❤️ Join us</a>
+            </span>
+            <span style="float: right !important; padding: 2px 2px 2px 8px; margin: 0;"><a href="/login/index"> ➡️ Log in</a></span>
+
+          </div>
+        
+        <div class="content rounded border">
+            <div class="row">
+                <div class="column-12 pad-5 txt-center" id="searchbar">
+                    {% load static %}
+                    <img src="{% static 'app/images/sindibad.jpg' %}" class="rounded" width="300" />
+                    <form method="post" action="/result">
+                        {% csrf_token %}
+                        <input type="search" name="city" placeholder="Sindibad tour guide search engine, serach for city...">
+                      </form>
+                </div>
+                {% block content %} {% endblock %}
+            </div>
+        </div>
+        <br>
+        <div class="column-12 pad-4 txt-center">
+            <span style="color: rgb(207, 207, 207);">copy rights reserved ©️ 2023, Software enginnering school, Nankai university international students</span>
+        </div>
+        
+        
+    </body>
+</html>

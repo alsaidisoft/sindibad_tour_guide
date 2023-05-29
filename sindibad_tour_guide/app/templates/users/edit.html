@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %} Edit user {% endblock title %}
+
+{% block content %}
+<div class="column-12 pad-4"><h2>👨🏻‍🔧 Users</h2></div>
+
+<div class="column-12">
+    
+    <form method="POST" action="/users/updateuser/{{count.id}}">
+        
+        {% csrf_token %}
+        <div class="content">
+            <div class="column-12">
+                <h3>Edit details:</h3>
+            </div>
+            <div class="marg-2">
+                <label>ID:</label>
+                <input type="text" name="id" class="input-box" maxlength="100" id="id_id" value="{{count.id}}" readonly/>
+            </div>
+            <div class="marg-2">
+                <label>Country:</label>
+                <select id="role" class="input-box" name="role">
+                    <option value="{{count.role.id}}">{{count.role.name}}</option>
+                    {% for role in roles %}
+                    <option value="{{role.id}}">{{role.name}}</option>
+                    {% endfor %}
+                    </select>
+            </div>
+            <div class="marg-2">
+                <label>Name:</label>
+                <input type="text" name="name" class="input-box" maxlength="100" id="id_name" value="{{count.name}}">
+            </div>
+            <div class="marg-2">
+                <label>Email:</label>
+                <input type="email" name="email" class="input-box" maxlength="100" id="id_email" value="{{count.email}}">
+            </div>
+            <div class="marg-2">
+                <label>Phone:</label>
+                <input type="text" name="phone" class="input-box" maxlength="100" id="id_phone" value="{{count.phone}}">
+            </div>
+            <div class="marg-2">
+                <label>Username:</label>
+                <input type="text" name="username" class="input-box" maxlength="100" id="id_username" value="{{count.username}}">
+            </div>
+            <div class="marg-2">
+                <label>Password:</label>
+                <input type="password" name="password" class="input-box" maxlength="100" id="id_password" value="{{count.password}}">
+            </div>
+            <div class="marg-2">
+                <button type="submit" class="butn btn-yellow">💾 Update</button>
+            </div>
+            <br>
+        </div>
+    </form>
+</div>
+
+{% endblock content %}

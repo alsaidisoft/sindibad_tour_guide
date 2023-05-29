@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %} Add sub category {% endblock title %}
+
+{% block content %}
+<div class="column-12 pad-4"><h2>🟩 Sub categories</h2></div>
+
+<div class="column-12">
+    
+    <form method="POST" action="/sub_cat/add" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="content">
+            <div class="column-12">
+                <h3>Enter details:</h3>
+            </div>
+            <div class="marg-2">
+                <label>City:</label>
+                <select id="city" class="input-box" name="city">
+                    {% for city in cities %}
+                    <option value="{{city.id}}">{{city.name}}</option>
+                    {% endfor %}
+                    </select>
+            </div>
+            <div class="marg-2">
+                <label>Category:</label>
+                <select id="category" class="input-box" name="cat">
+                    {% for category in categories %}
+                    <option value="{{category.id}}">{{category.name}}</option>
+                    {% endfor %}
+                    </select>
+            </div>
+            <div class="marg-2">
+                <label>Name:</label>
+                {{form.name}}
+            </div>
+            <div class="marg-2">
+                <label>Description:</label>
+                {{form.description}}
+            </div>
+            <div class="marg-2">
+                <label>Phone:</label>
+                {{form.phone}}
+            </div>
+            <div class="marg-2">
+                <label>Website:</label>
+                {{form.website}}
+            </div>
+            <div class="marg-2">
+                <label>Directions:</label>
+                {{form.direction}}
+            </div>
+            <div class="marg-2">
+                <label>Image:</label>
+                {{form.sub_cat_image}}
+            </div>
+            <div class="marg-2">
+                <button type="submit" class="butn btn-green">➕ Add</button>
+            </div>
+            <br>
+        </div>
+    </form>
+</div>
+
+{% endblock content %}

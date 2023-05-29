@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %} Edit country {% endblock title %}
+
+{% block content %}
+<div class="column-12 pad-4"><h2>🌎 Countries</h2></div>
+
+<div class="column-12">
+    
+    <form method="POST" action="/countries/updatecountry/{{count.id}}" enctype="multipart/form-data">
+        
+        {% csrf_token %}
+        <div class="content">
+            <div class="column-12">
+                <h3>Edit details:</h3>
+            </div>
+            <div class="marg-2">
+                <label>ID:</label>
+                <input type="text" name="id" class="input-box" maxlength="100" id="id_id" value="{{count.id}}" readonly/>
+            </div>
+            <div class="marg-2">
+                <label>Name:</label>
+                <input type="text" name="name" class="input-box" maxlength="100" id="id_name" value="{{count.name}}">
+            </div>
+            <div class="marg-2">
+                <label>Description:</label>
+                <textarea name="description" cols="40" rows="10" class="input-box" maxlength="300" id="id_description">{{count.description}}</textarea>
+                <hr>
+            </div>
+            <div class="marg-2">
+                <label>Icon:</label>
+                <input type="file" name="profile" class="input-box" id="id_profile">
+                <hr>
+            </div>
+            <div class="marg-2">
+                <button type="submit" class="butn btn-yellow">💾 Update</button>
+            </div>
+            <br>
+        </div>
+    </form>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block title %} Edit sub category {% endblock title %}
+
+{% block content %}
+<div class="column-12 pad-4"><h2>🟩 Sub categories</h2></div>
+
+<div class="column-12">
+    
+    <form method="POST" action="/sub_cat/updatesubcat/{{count.id}}" enctype="multipart/form-data">
+        
+        {% csrf_token %}
+        <div class="content">
+            <div class="column-12">
+                <h3>Edit details:</h3>
+            </div>
+            <div class="marg-2">
+                <label>ID:</label>
+                <input type="text" name="id" class="input-box" maxlength="100" id="id_id" value="{{count.id}}" readonly/>
+            </div>
+            <div class="marg-2">
+                <label>City:</label>
+                <select id="city" class="input-box" name="city">
+                    <option value="{{count.city.id}}">{{count.city.name}}</option>
+                    {% for city in cities %}
+                    <option value="{{city.id}}">{{city.name}}</option>
+                    {% endfor %}
+                    </select>
+            </div>
+            <div class="marg-2">
+                <label>Category:</label>
+                <select id="category" class="input-box" name="cat">
+                    <option value="{{count.cat.id}}">{{count.cat.name}}</option>
+                    {% for category in categories %}
+                    <option value="{{category.id}}">{{category.name}}</option>
+                    {% endfor %}
+                    </select>
+            </div>
+            <div class="marg-2">
+                <label>Name:</label>
+                <input type="text" name="name" class="input-box" maxlength="100" id="id_name" value="{{count.name}}">
+            </div>
+            <div class="marg-2">
+                <label>Description:</label>
+                <textarea name="description" cols="40" rows="10" class="input-box" maxlength="300" id="id_description">{{count.description}}</textarea>
+                <hr>
+            </div>
+            <div class="marg-2">
+                <label>Phone:</label>
+                <input type="text" name="phone" class="input-box" maxlength="100" id="id_phone" value="{{count.phone}}">
+            </div>
+            <div class="marg-2">
+                <label>Website:</label>
+                <input type="text" name="website" class="input-box" maxlength="100" id="id_website" value="{{count.website}}">
+            </div>
+            <div class="marg-2">
+                <label>Directions:</label>
+                <input type="text" name="direction" class="input-box" maxlength="100" id="id_name" value="{{count.direction}}">
+            </div>
+            <div class="marg-2">
+                <label>Image:</label>
+                <input type="file" name="sub_cat_image" class="input-box" id="id_sub_cat_image">
+                <hr>
+            </div>
+            <div class="marg-2">
+                <button type="submit" class="butn btn-yellow">💾 Update</button>
+            </div>
+            <br>
+        </div>
+    </form>
+</div>
+
+{% endblock content %}
