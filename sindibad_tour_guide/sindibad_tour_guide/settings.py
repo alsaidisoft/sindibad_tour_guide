@@ -77,13 +77,14 @@ WSGI_APPLICATION = 'sindibad_tour_guide.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'sindibad_tour_db',
         'USER': 'myuser',
         'PASSWORD': 'mypwd',
-        'HOST': 'localhost',
+        'HOST': '127.0.0.1',
         'PORT': '3306'
     }
 }
