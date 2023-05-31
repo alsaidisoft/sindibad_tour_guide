@@ -4,11 +4,12 @@
 """ 
 This app has been done by software engineering international students as final project of web development course
 The app developed by:
-- SAID SAIF MOHAMMED ALSAIDI
-- MOHAMMED SAAD
-- AMMAR KHALID
-- HIDER 
+- SAID SAIF MOHAMMED AL SAIDI - ID: 2120226034
+- MOHAMMED SUAD ALI - ID: 2120226096
+- AMMAR KHALID MOHAMMED - ID: 2120226097
+- HIDER HUSAM AHMED - ID: 2120226098
 
+version 1.0
 """
 import os
 import sys
